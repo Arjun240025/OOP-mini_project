@@ -1,0 +1,33 @@
+
+
+class Shift<T> {
+    private T shiftType;
+    public Shift(T shiftType) { this.shiftType = shiftType; }
+    public void showShift() {
+        System.out.println("Shift Type: " + shiftType);
+    }
+}
+
+class StaffTask extends Thread {
+    private String staffName;
+    public StaffTask(String staffName) { this.staffName = staffName; }
+    public void run() {
+        for (int i = 1; i <= 3; i++) {
+            System.out.println(staffName + " is working on task " + i);
+            try { Thread.sleep(300); } catch (InterruptedException e) {}
+        }
+        System.out.println(staffName + " has completed the shift.\n");
+    }
+}
+
+public class Module3_GenericsThreads {
+    public static void main(String[] args) {
+        Shift<String> s = new Shift<>("Night Shift");
+        s.showShift();
+
+        StaffTask chef = new StaffTask("Chef John");
+        StaffTask receptionist = new StaffTask("Receptionist Mary");
+        chef.start();
+        receptionist.start();
+    }
+}
