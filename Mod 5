@@ -1,0 +1,29 @@
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Module5_GUI {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Hotel Staff Scheduling System");
+
+        JLabel title = new JLabel("Hotel Staff Scheduler", SwingConstants.CENTER);
+        title.setFont(new Font("Arial", Font.BOLD, 20));
+
+        JButton viewButton = new JButton("View Schedule");
+        JButton assignButton = new JButton("Assign Shift");
+        JButton exitButton = new JButton("Exit");
+
+        JPanel panel = new JPanel(new GridLayout(4, 1, 10, 10));
+        panel.add(title);
+        panel.add(viewButton);
+        panel.add(assignButton);
+        panel.add(exitButton);
+
+        frame.add(panel);
+        frame.setSize(400, 250);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        System.out.println("GUI launched successfully - Hotel Staff Scheduler ready.");
+    }
+}
