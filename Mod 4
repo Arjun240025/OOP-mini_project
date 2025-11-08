@@ -1,0 +1,19 @@
+
+import java.net.*;
+
+public class Module4_NetworkJDBC {
+    public static void main(String[] args) {
+        try {
+            InetAddress addr = InetAddress.getLocalHost();
+            System.out.println("Connected to Hotel Server: " + addr.getHostName());
+            System.out.println("Server IP Address: " + addr.getHostAddress());
+        } catch (UnknownHostException e) {
+            System.out.println("Network Error: " + e.getMessage());
+        }
+
+        // Mock JDBC demo (simulation)
+        System.out.println("\nConnecting to HotelDB...");
+        System.out.println("Executing SQL Query: SELECT * FROM staff_schedule;");
+        System.out.println("Database connection simulated successfully.");
+    }
+}
