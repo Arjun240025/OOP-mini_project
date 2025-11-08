@@ -1,0 +1,47 @@
+
+
+abstract class Staff {
+    private String name;
+    private String role;
+    protected double salary;
+    private static int totalStaff = 0;
+
+    public Staff(String name, String role, double salary) {
+        this.name = name;
+        this.role = role;
+        this.salary = salary;
+        totalStaff++;
+    }
+
+    public abstract void performDuty();
+
+    public void displayDetails() {
+        System.out.println("Name: " + name + ", Role: " + role + ", Salary: " + salary);
+    }
+
+    public static void showTotalStaff() {
+        System.out.println("Total Staff Registered: " + totalStaff);
+    }
+
+    protected void finalize() {
+        System.out.println("Finalizing resources for " + name);
+    }
+}
+
+class Chef extends Staff {
+    public Chef(String name, double salary) {
+        super(name, "Chef", salary);
+    }
+    public void performDuty() {
+        System.out.println("Preparing meals for guests...");
+    }
+}
+
+public class Module1_OOP {
+    public static void main(String[] args) {
+        Staff s1 = new Chef("John", 25000);
+        s1.displayDetails();
+        s1.performDuty();
+        Staff.showTotalStaff();
+    }
+}
