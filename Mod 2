@@ -1,0 +1,26 @@
+
+import java.io.*;
+
+public class Module2_ExceptionStreams {
+    public static void main(String[] args) {
+        String[] staffNames = {"John", "Mary", "David"};
+        try {
+            // Intentional exception
+            System.out.println("Accessing invalid index: " + staffNames[5]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("⚠️ Exception: Tried to access invalid staff index!");
+        } finally {
+            System.out.println("Staff array access attempt complete.\n");
+        }
+
+        // Writing staff info into a file
+        try (FileWriter fw = new FileWriter("hotel_staff_log.txt")) {
+            fw.write("Hotel Staff Scheduling Log\n");
+            fw.write("==========================\n");
+            fw.write("Staff Names: John, Mary, David\n");
+            System.out.println("Staff log written successfully to file.");
+        } catch (IOException e) {
+            System.out.println("File I/O Error: " + e.getMessage());
+        }
+    }
+}
