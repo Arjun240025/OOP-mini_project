@@ -1,6 +1,6 @@
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class Module5_GUI {
     public static void main(String[] args) {
@@ -12,6 +12,29 @@ public class Module5_GUI {
         JButton viewButton = new JButton("View Schedule");
         JButton assignButton = new JButton("Assign Shift");
         JButton exitButton = new JButton("Exit");
+
+        // Add action listeners for button clicks
+        viewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(frame, "Viewing schedule...");
+                System.out.println("View Schedule button clicked");
+            }
+        });
+
+        assignButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(frame, "Assigning new shift...");
+                System.out.println("Assign Shift button clicked");
+            }
+        });
+
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Exit button clicked");
+                JOptionPane.showMessageDialog(frame, "Exiting application...");
+                frame.dispose(); // closes the window
+            }
+        });
 
         JPanel panel = new JPanel(new GridLayout(4, 1, 10, 10));
         panel.add(title);
